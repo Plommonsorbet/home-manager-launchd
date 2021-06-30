@@ -1,6 +1,13 @@
 # Home Manager Launchd
 
-The launchd module is copied from the nix-darwin repo and slightly modified and dumped into a flake.  Currently it does not update on rebuild, so you'll need to start it manually or log out/in.
+The launchd module is copied from the  [nix-darwin](https://github.com/LnL7/nix-darwin/) repo and slightly modified and dumped into a flake.
+
+note: Currently it does not automatically update on rebuild, so you'll need to start it manually load it in via launchctl or log out/in.
+
+## Docs
+
+Since this is just copied from the nix-darwin repo and none of the options modified you can just use the [manual](https://daiderd.com/nix-darwin/manual/index.html#opt-environment.userLaunchAgents).
+
 
 ## Basic Flake example
 ```nix
