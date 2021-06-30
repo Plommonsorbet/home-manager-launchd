@@ -13,12 +13,6 @@ let
     value.text = toPLIST value.serviceConfig;
   };
 
-  #buildLaunchAgentFile = name: value: {
-  #  name = "/Library/LaunchAgents/${value.serviceConfig.Label}.plist";
-  #  value.text = generators.toPlist {} value.serviceConfig;
-  #};
-
-
   launchdConfig = import ./launchd.nix;
 
   makeDrvBinPath = ps: concatMapStringsSep ":" (p: if isDerivation p then "${p}/bin" else p) ps;
@@ -130,6 +124,6 @@ in
   };
 
   config = {
-    home.file = mapAttrs' toLauncAgent cfg.user.agents;
+    home.file = mapAttrs' toLaunchAgent cfg.user.agents;
   };
 }
